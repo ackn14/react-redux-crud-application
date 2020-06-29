@@ -2,7 +2,12 @@ import React,{ Component } from 'react';
 
 class App extends Component {
   render(){
-    return <h1>Make it possible with React</h1>;
+    return(
+      <React.Fragment>
+        <label htmlFor="bar">bar</label>
+        <input type="text" onChange={() => {console.log("I am a spartan")}}/>
+      </React.Fragment>
+    )
   }
 }
 

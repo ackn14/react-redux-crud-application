@@ -11,17 +11,19 @@ class EventsIndex extends Component {
 
   renderEvents() {
     return _.map(this.props.events, event => (
-      <tr>
+      <tr key={event.id}>
         <td>{event.id}</td>
-        <td>{event.title}</td>
+        <td>
+          <Link to={`/events/${event.id}`}>
+            {event.title}
+          </Link>
+        </td>
         <td>{event.body}</td>
       </tr>
     ))
   }
 
   render(){
-    const props = this.props
-
     return (
       <React.Fragment>
         <table>
@@ -39,7 +41,7 @@ class EventsIndex extends Component {
 
         </table>
 
-        <Link to="/events/new">New Event</Link>
+        <Link to="/events/new">新規作成</Link>
       </React.Fragment>
     )
   }
